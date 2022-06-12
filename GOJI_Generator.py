@@ -3,6 +3,12 @@ import ginza
 import regex
 import pykakasi
 
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFont
+
+#誤字トラップのベースとなるプログラム。docの中に入れた文章のみ対応。
+
 nlp = spacy.load('ja_ginza')
 doc = nlp('新橋で3日昼に「ランチ」をご一緒しましょう！！？次の、十日火曜日はどうですか。')
 
