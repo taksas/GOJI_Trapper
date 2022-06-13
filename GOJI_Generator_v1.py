@@ -64,6 +64,11 @@ def maker(text):
                        .replace('【', '')\
                        .replace('】', '')\
                        .replace('　', '')\
+                       .replace('・', '')\
+                       .replace('→', '')\
+                       .replace('←', '')\
+                       .replace('↑', '')\
+                       .replace('↓', '')\
                        .replace('\n', '')
 
         
