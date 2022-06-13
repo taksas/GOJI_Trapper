@@ -1,0 +1,132 @@
+import spacy
+import ginza
+import regex
+import pykakasi
+
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFont
+
+#誤字トラップのベースとなるプログラム。docの中に入れた文章のみ対応。
+
+nlp = spacy.load('ja_ginza')
+doc = nlp('新橋で3日昼に「ランチ」をご一緒しましょう！！？次の、十日火曜日はどうですか。')
+
+p1 = regex.compile(r'\p{Script=Han}+')
+p2 = regex.compile(r'\p{Script=Latin}+')
+p3 = regex.compile(r'\p{Numeric_Type=Numeric}+')
+p4 = regex.compile('[0-9]+')
+p5 = regex.compile('[０-９]+')
+
+kks = pykakasi.kakasi()
+
+f = open('myfile.txt', 'a')
+
+# 文節分割
+for sent in doc.sents:
+    for span in ginza.bunsetu_spans(sent):
+
+        sp =  str(span).replace('。', '')\
+                       .replace('、', '')\
+                       .replace(',', '')\
+                       .replace('.', '')\
+                       .replace('!', '')\
+                       .replace('！', '')\
+                       .replace('?', '')\
+                       .replace('？', '')\
+                       .replace('「', '')\
+                       .replace('」', '')\
+                       .replace('（', '')\
+                       .replace('）', '')\
+                       .replace('(', '')\
+                       .replace(')', '')\
+                       .replace('[', '')\
+                       .replace(']', '')\
+                       .replace('$', '')\
+                       .replace('＄', '')\
+                       .replace('&', '')\
+                       .replace('＆', '')\
+                       .replace('%', '')\
+                       .replace('％', '')\
+                       .replace('-', '')\
+                       .replace('＃', '')\
+                       .replace('《', '')\
+                       .replace('》', '')\
+                       .replace('｜', '')\
+                       .replace('：', '')\
+                       .replace('【', '')\
+                       .replace('】', '')
+        if p1.search(sp) != None and p2.search(sp) == None and p3.search(sp) == None and p4.search(sp) == None and p5.search(sp) == None: 
+          print(sp)
+          yomi = ''
+          result = kks.convert(sp)
+          for result2 in result:
+            yomi += result2['hira']
+          print(yomi)
+          output = yomi + '	' + sp  + '	' + '名詞' + '	' + '誤字トラッパー' + '\n'
+          f.write(output)
+
+def maker(text):
+  nlp = spacy.load('ja_ginza')
+  doc = nlp(text)
+  p1 = regex.compile(r'\p{Script=Han}+')
+  p2 = regex.compile(r'\p{Script=Latin}+')
+  p3 = regex.compile(r'\p{Numeric_Type=Numeric}+')
+  p4 = regex.compile('[0-9]+')
+  p5 = regex.compile('[０-９]+')
+
+  kks = pykakasi.kakasi()
+  f = open('goji.txt', 'a')
+
+  # 文節分割
+  for sent in doc.sents:
+    for span in ginza.bunsetu_spans(sent):
+
+        sp =  str(span).replace('。', '')\
+                       .replace('、', '')\
+                       .replace(',', '')\
+                       .replace('.', '')\
+                       .replace('!', '')\
+                       .replace('！', '')\
+                       .replace('?', '')\
+                       .replace('？', '')\
+                       .replace('「', '')\
+                       .replace('」', '')\
+                       .replace('（', '')\
+                       .replace('）', '')\
+                       .replace('(', '')\
+                       .replace(')', '')\
+                       .replace('[', '')\
+                       .replace(']', '')\
+                       .replace('$', '')\
+                       .replace('＄', '')\
+                       .replace('&', '')\
+                       .replace('＆', '')\
+                       .replace('%', '')\
+                       .replace('％', '')\
+                       .replace('-', '')\
+                       .replace('＃', '')\
+                       .replace('《', '')\
+                       .replace('》', '')\
+                       .replace('｜', '')\
+                       .replace('：', '')\
+                       .replace('【', '')\
+                       .replace('】', '')
+        if p1.search(sp) != None and p2.search(sp) == None and p3.search(sp) == None and p4.search(sp) == None and p5.search(sp) == None: 
+          print(sp)
+          yomi = ''
+          result = kks.convert(sp)
+          for result2 in result:
+            yomi += result2['hira']
+          print(yomi)
+          output = yomi + '	' + sp  + '	' + '名詞' + '	' + '誤字トラッパー' + '\n'
+          f.write(output)
+
+
+
+if __name__ == '__main__':
+    for file in glob.glob("./aozorabunko_text-master/*):
+      print('Loading : ' + file)
+        with open(file, encoding="utf-8") as f:
+            for line in f:
+                  maker(line)
