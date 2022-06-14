@@ -29,6 +29,16 @@
 Python + <br>GiNZA(自然言語処理担当その1) + <br>spaCy(自然言語処理担当その2) + <br>pykakasi(自然言語処理担当その3) + <br>OpenCV(画像の類似度判定) + <br>青空文庫(aozorahackさんのaozorabunko_text（ https://github.com/aozorahack/aozorabunko_text ）を使用) + <br>Rime Academyさんの漢字一覧表（ https://github.com/rime-aca/character_set ）<br><br>を使用しています。
 <br>
 <br>
+<h2>ダウンロード</h2>
+生成された生データ自体はgoji.txtですが、サイズが100MBを超えるためgithubに上げられません。
+<br>
+但し、過去のコミットを漁ることでテスト中のgoji.txtを取得することが出来ます。（重複単語が多いため動作確認にのみの使用をおすすめします）
+<br>
+<br>
+類似度1.7未満、青空文庫の12000件ほどの作品のうち6000件ほどを解析した結果出た出力データとして、goji_similarity_1.7_under7000.txtを置いています（生データのため重複あり）。テストにご利用ください。
+<br>
+<br>
+完成版はこちら
 
 <h2>主な登場人物</h2>
 
