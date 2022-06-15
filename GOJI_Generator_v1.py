@@ -107,7 +107,7 @@ if __name__ == '__main__':
     for file in glob.glob('./aozorabunko_text-master/cards/*/*/*/*.txt'):
       print('Loading_NEXT_BOOK (' + str(i) + ') ---> ' + file)
       i += 1
-        with open(file, encoding="utf-8") as f:
+      with open(file, encoding="utf-8") as f:
           try:
             for line in f:
               maker(line)
