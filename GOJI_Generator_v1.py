@@ -108,7 +108,7 @@ if __name__ == '__main__':
       print('Loading_NEXT_BOOK (' + str(i) + ') ---> ' + file)
       i += 1
       try:
-        with open(file, encoding="utf-8") as f:
+        with open(file, encoding="shift-jis") as f:
           for line in f:
             maker(line)
       except Exception:
