@@ -81,6 +81,7 @@ def maker(text):
                        .replace('ο', '')\
                        .replace('※', '')\
                        .replace('β', '')\
+                       .replace('◯', '')\
                        .replace('\n', '')
 
         
