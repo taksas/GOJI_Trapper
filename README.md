@@ -30,17 +30,17 @@ Python + <br>GiNZA(自然言語処理担当その1) + <br>spaCy(自然言語処�
 <br>
 <br>
 <h2>ダウンロード</h2>
-生成された生データ自体はgoji.txt（単語）ですが、重複単語が非常に多いため動作確認にのみの使用をおすすめします。
+生成された生データ自体はgoji.txt（1,147,421単語）ですが重複単語が非常に多く辞書読み込みに時間が掛かるため、こちらは動作確認にのみの使用をおすすめします。
 <br>
-通常使用にはgoji_modified.txt（単語）をお使いください。
+通常使用には重複単語を除いたgoji_modified.txt（331,745単語）をお使いください。
 <br>
 <br>
 類似度1.7未満、青空文庫の17000件ほどの作品のうち6000件ほどを解析した結果出た出力データとして、goji_similarity_1.7_under7000.txtを置いています（生データのため重複あり）。テストにご利用ください。
 <br>
 <br>
-完成版は
+完成版（goji_modified.txt）は
 
-[こちら](https://github.com/taksas/AOZORA_IME_Dictionary)
+[こちら](https://github.com/taksas/GOJI_Trapper/blob/main/goji_modified.txt)
 
 
 
