@@ -38,7 +38,7 @@ Python + <br>GiNZA(自然言語処理担当その1) + <br>spaCy(自然言語処�
 類似度1.7未満、青空文庫の17000件ほどの作品のうち6000件ほどを解析した結果出た出力データとして、goji_similarity_1.7_under7000.txtを置いています（生データのため重複あり）。テストにご利用ください。
 <br>
 <br>
-完成版（goji_modified.txt）は
+完成版（goji_modified.txt、類似度1.7未満を対象）は
 
 [こちら](https://github.com/taksas/GOJI_Trapper/blob/main/goji_modified.txt)
 
